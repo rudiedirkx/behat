@@ -3,17 +3,14 @@ Feature: LibraryThing sessions
 
 	Scenario: Log in
 		Given I am on the homepage
-		# When I log in using username "oele" and password "boele"
 		When I log in using the configured user
 		Then I should be logged in
 
 	Scenario: See my profile
 		Given I log in using the configured user
-		And I am logged in
-		# And print last response
+		And I save that into "USERNAME"
 		When I go to "/editprofile/profile"
 		Then the response status code should be 200
 		And I should be on "/editprofile/profile"
-		# And print last response
-		And I should see "Member name"
-		And I should see "Save Changes"
+		And I should see "Member name" in the "#form1" element
+		And I should see "<<USERNAME>>" in the "#form1" element

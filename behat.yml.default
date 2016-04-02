@@ -1,7 +1,15 @@
 default:
-    suites:
+  suites:
+    default:
+      contexts:
+        - rdx\behatvars\BehatVariablesContext: ~
+        - FeatureContext:
+          - your_username
+          - Y0urPa$$word
+  extensions:
+    rdx\behatvars\BehatVariablesExtension: ~
+    Behat\MinkExtension:
+      base_url:  'https://www.librarything.com'
+      sessions:
         default:
-            contexts:
-                - FeatureContext:
-                    - your_username
-                    - Y0urPa$$word
+          goutte: ~

@@ -4,6 +4,7 @@
         "guzzlehttp/guzzle": "^6.2",
         "behat/mink": "^1.7",
         "behat/mink-extension": "^2.2",
-        "behat/mink-goutte-driver": "^1.2"
+        "behat/mink-goutte-driver": "^1.2",
+        "rdx/behat-variables": "^1.0"
     }
 }

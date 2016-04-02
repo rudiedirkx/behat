@@ -22,10 +22,12 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 
 	/**
 	 * @Given I am logged in
+	 * @Then I should be logged in
 	 */
 	public function iAmLoggedIn() {
-		$this->visit('/');
-		return $this->iShouldBeLoggedIn();
+		$this->visit('/home');
+		$this->assertPageContainsText('Sign out');
+		$this->assertPageContainsText($this->username);
 	}
 
 
@@ -41,9 +43,14 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	 * @When I log in using username :username and password :password
 	 */
 	public function iLogInUsingUsernameAndPassword($username, $password) {
+		$this->username = $username;
+
+		$this->visit('/');
 		$this->fillField('formusername', $username);
 		$this->fillField('formpassword', $password);
 		$this->pressButton('index_signin_already');
+
+		return $this->username;
 	}
 
 	/**
@@ -51,15 +58,6 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	 */
 	public function iGoToMyProfile() {
 		throw new PendingException();
-	}
-
-
-
-	/**
-	 * @Then I should be logged in
-	 */
-	public function iShouldBeLoggedIn() {
-		return $this->assertPageContainsText('Sign out');
 	}
 
 	/**
