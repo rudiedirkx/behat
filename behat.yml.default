@@ -4,8 +4,8 @@ default:
       contexts:
         - rdx\behatvars\BehatVariablesContext: ~
         - FeatureContext:
-          - your_username
-          - Y0urPa$$word
+          - droprislok
+          - droprislok
   extensions:
     rdx\behatvars\BehatVariablesExtension: ~
     Behat\MinkExtension:
