@@ -16,6 +16,8 @@ class FeatureContext extends MinkContext implements Context, SnippetAcceptingCon
 	public function __construct($username, $password) {
 		$this->username = $username;
 		$this->password = $password;
+
+		date_default_timezone_set('UTC');
 	}
 
 
