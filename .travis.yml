@@ -4,4 +4,4 @@ php:
 install:
   - composer install
   - cp behat.yml.default behat.yml
-script: vendor/bin/behat
+script: vendor/bin/behat --format-settings='{"paths":false}'
